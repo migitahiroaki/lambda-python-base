@@ -1,7 +1,11 @@
 {
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "python.defaultInterpreterPath": ".venv/bin/python",
   "[python]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.tabSize": 4
   }
