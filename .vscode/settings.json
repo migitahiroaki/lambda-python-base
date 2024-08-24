@@ -3,10 +3,14 @@
   "editor.formatOnPaste": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "python.defaultInterpreterPath": ".venv/bin/python",
+  "flake8.args": ["--max-line-length=88"],
   "[python]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.tabSize": 4
-  }
+  },
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 }

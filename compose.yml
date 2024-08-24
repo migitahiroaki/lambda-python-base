@@ -1,0 +1,29 @@
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    container_name: dynamodb-local
+    networks:
+      - lambda-python-base
+    ports:
+      - 8000:8000
+    volumes:
+      # - ddv:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${LOCAL_WORKSPACE_FOLDER}/volume/dynamodb:/data
+    command: ['-jar', 'DynamoDBLocal.jar', '-sharedDb', '-dbPath', '/data']
+
+  dynamodb-admin:
+    container_name: dynamodb-admin
+    image: aaronshaf/dynamodb-admin
+    networks:
+      - lambda-python-base
+    ports:
+      - '8001:8001'
+    environment:
+      DYNAMO_ENDPOINT: dynamodb-local:8000
+    depends_on:
+      - dynamodb-local
+
+networks:
+  lambda-python-base:
+    external: true
